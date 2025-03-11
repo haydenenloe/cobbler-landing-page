@@ -1,6 +1,10 @@
 import * as React from "react";
 
-export const ArrowDown: React.FC = () => {
+interface ArrowDownProps {
+  className?: string;
+}
+
+export const ArrowDown: React.FC<ArrowDownProps> = ({ className }) => {
   return (
     <svg
       width="87"
@@ -8,7 +12,7 @@ export const ArrowDown: React.FC = () => {
       viewBox="0 0 87 36"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="arrow-down"
+      className={`arrow-down ${className}`}
       style={{ width: "119px", height: "47px" }}
     >
       <path
