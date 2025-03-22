@@ -11,7 +11,7 @@ const NavLink: React.FC<NavLinkProps> = ({ to, children }) => (
     to={to}
     smooth={true}
     duration={500}
-    className="px-2 text-base text-black cursor-pointer hover:text-gray-600 transition-colors"
+    className="px-2 text-base text-black cursor-pointer hover:text-[#1C8757] transition-colors"
   >
     {children}
   </Link>

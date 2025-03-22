@@ -4,28 +4,48 @@ import { Link } from "react-scroll";
 import { ArrowDown } from "../common/icons/ArrowDown";
 
 export default function DemoLandingPage() {
+  const [isPlaying, setIsPlaying] = React.useState(false);
+  const videoRef = React.useRef(null);
+
+  const togglePlay = () => {
+    if (videoRef.current) {
+      if (isPlaying) {
+        videoRef.current.pause();
+      } else {
+        videoRef.current.play();
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
+
   return (
     <section
       id="demo"
       className="flex flex-col items-center justify-between min-h-screen px-4 py-16"
     >
-      <div className="flex flex-col items-center text-center mt-26">
-        <h1 className="text-5xl text-black mb-8 max-w-4xl max-md:text-4xl max-sm:text-3xl">
-          Watch what we want to build here:
+      <div className="container mx-auto max-w-4xl px-4">
+        <h1 className="mt-20 text-6xl text-black text-left mb-6 max-md:text-5xl max-sm:mt-10 max-sm:text-4xl">
+          watch what we want to build here:
         </h1>
-        <h2 className="text-6xl text-black max-md:text-5xl max-sm:text-3xl">
-          <a
-            href="https://www.loom.com/share/a17beb56d79f425fbf2f353b8ff40361?sid=124acbef-a717-44b7-b08a-b1c7a57bda65"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-blue-500 underline"
-          >
-            Demo Video
-          </a>
-        </h2>
+
+        {/* Video container with centered video and rounded corners */}
+        <div className="w-full flex justify-center mb-12">
+          <div className="w-full max-w-3xl overflow-hidden rounded-2xl shadow-lg">
+            <video
+              ref={videoRef}
+              className="w-full h-auto object-cover bg-white"
+              controls
+              onClick={togglePlay}
+            >
+              <source src="/video/cobbler_demo.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
       </div>
-      <div className="flex flex-col items-center gap-4">
-        <h2 className="text-xl text-black">Sign Up</h2>
+
+      <div className="flex flex-col items-center gap-4 mt-8">
+        <h2 className="text-xl text-black">sign Up</h2>
         <Link to="signup" smooth={true} duration={500}>
           <ArrowDown className="w-6 h-6 cursor-pointer" />
         </Link>

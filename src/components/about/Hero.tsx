@@ -16,7 +16,7 @@ export const Hero: React.FC = () => {
           not helped us. It does not make money off our success, but from
           selling our information to ads.
         </p>
-        <p className="mb-5 font-bold">Enough is enough.</p>
+        <p className="mb-5 font-bold text-[#01462B]">Enough is enough.</p>
         <p className="mb-5">
           From our experience and education, we are making an app that rewards
           and promotes you strengthening your relationships
