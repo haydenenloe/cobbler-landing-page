@@ -5,7 +5,7 @@ import { ArrowDown } from "../common/icons/ArrowDown";
 
 export default function DemoLandingPage() {
   const [isPlaying, setIsPlaying] = React.useState(false);
-  const videoRef = React.useRef(null);
+  const videoRef = React.useRef<HTMLVideoElement | null>(null);
 
   const togglePlay = () => {
     if (videoRef.current) {
